@@ -24,3 +24,4 @@ hs_err_pid*
 replay_pid*
 .env
 Auth/src/main/resources/application.properties
+finances/src/main/resources/application.properties
