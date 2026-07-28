@@ -36,6 +36,7 @@ public class MovementGrpcMapper {
                 .setId(movement.getId())
                 .setType(toGrpcType(movement.getType()))
                 .setAmount(movement.getAmount())
+                .setDate(movement.getDate().toString())
                 .build();
     }
 

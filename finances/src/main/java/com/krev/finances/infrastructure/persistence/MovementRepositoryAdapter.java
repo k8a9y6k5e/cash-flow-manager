@@ -19,6 +19,8 @@ public class MovementRepositoryAdapter implements MovementRepositoryPort {
 
         entity.setType(domain.getType());
 
+        entity.setDate(domain.getDate());
+
         return entity;
     }
 

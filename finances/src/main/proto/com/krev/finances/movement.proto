@@ -20,6 +20,7 @@ message CreateMovementResponse {
   int64 id = 1;
   MovementType type = 2;
   int64 amount = 3;
+  string date = 4;
 }
 
 service MovementService {

@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "movement")
 @EntityListeners(AuditingEntityListener.class)
@@ -19,4 +21,7 @@ public class MovementEntity {
 
     @Column(name = "amount", nullable = false)
     private Long amount;
+
+    @Column(name = "date", nullable = false)
+    private LocalDate date;
 }
