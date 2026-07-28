@@ -2,5 +2,27 @@ syntax = "proto3";
 
 package movement;
 
-option java_package = "com.krev.finances.grpc";
+option java_package = "com.krev.finances.infrastructure.grpc";
 option java_multiple_files = true;
+
+enum MovementType {
+  MOVEMENT_TYPE_UNSPECIFIED = 0;
+  INCOME = 1;
+  EXPENSE = 2;
+}
+
+message CreateMovementRequest {
+  MovementType type = 1;
+  int64 amount = 2;
+}
+
+message CreateMovementResponse {
+  int64 id = 1;
+  MovementType type = 2;
+  int64 amount = 3;
+}
+
+service MovementService {
+  rpc Create(CreateMovementRequest)
+      returns (CreateMovementResponse);
+}
