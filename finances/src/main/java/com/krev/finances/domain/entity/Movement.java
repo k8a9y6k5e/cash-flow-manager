@@ -35,4 +35,25 @@ public class Movement {
         this.type = type;
         this.date = LocalDate.now();
     }
+
+    public Movement(Long id, MovementType type, Long amount, LocalDate date) {
+        if(amount != null && amount > 0L) {
+            this.amount = amount;
+        }
+        //and an error throw
+
+        this.id = id;
+        this.type = type;
+        this.date = date;
+    }
+
+    public Movement(MovementType type, Long amount, LocalDate date) {
+        if(amount != null && amount > 0L) {
+            this.amount = amount;
+        }
+        //and an error throw
+
+        this.type = type;
+        this.date = date;
+    }
 }
