@@ -11,6 +11,13 @@ enum MovementType {
   EXPENSE = 2;
 }
 
+message Movement {
+  int64 id = 1;
+  MovementType type = 2;
+  int64 amount = 3;
+  string date = 4;
+}
+
 message CreateMovementRequest {
   MovementType type = 1;
   int64 amount = 2;
@@ -23,7 +30,19 @@ message CreateMovementResponse {
   string date = 4;
 }
 
+message GetMovementsByMonthRequest {
+  int32 month = 1;
+  optional int32 year = 2;
+}
+
+message GetMovementsByMonthResponse {
+  repeated Movement movements = 1;
+}
+
 service MovementService {
   rpc Create(CreateMovementRequest)
       returns (CreateMovementResponse);
+
+  rpc GetMovementsByMonth(GetMovementsByMonthRequest)
+      returns (GetMovementsByMonthResponse);
 }

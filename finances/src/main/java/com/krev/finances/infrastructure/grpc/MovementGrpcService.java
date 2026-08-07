@@ -1,10 +1,13 @@
 package com.krev.finances.infrastructure.grpc;
 
 import com.krev.finances.application.port.in.CreateMovementUseCase;
+import com.krev.finances.application.port.in.GetMovementPerMonthUseCase;
 import com.krev.finances.domain.entity.Movement;
 import com.krev.finances.infrastructure.grpc.mappers.MovementGrpcMapper;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
+
+import java.util.List;
 
 @GrpcService
 public class MovementGrpcService extends MovementServiceGrpc.MovementServiceImplBase {
@@ -13,12 +16,16 @@ public class MovementGrpcService extends MovementServiceGrpc.MovementServiceImpl
 
     private final MovementGrpcMapper movementGrpcMapper;
 
+    private final GetMovementPerMonthUseCase getMovementPerMonthUseCase;
+
     public MovementGrpcService(
             CreateMovementUseCase createMovementUseCase,
-            MovementGrpcMapper movementGrpcMapper
+            MovementGrpcMapper movementGrpcMapper,
+            GetMovementPerMonthUseCase getMovementPerMonthUseCase
     ) {
         this.createMovementUseCase = createMovementUseCase;
         this.movementGrpcMapper = movementGrpcMapper;
+        this.getMovementPerMonthUseCase = getMovementPerMonthUseCase;
     }
 
     @Override
@@ -38,6 +45,27 @@ public class MovementGrpcService extends MovementServiceGrpc.MovementServiceImpl
             responseObserver.onCompleted();
         }
         catch (Exception ex) {
+            responseObserver.onError(ex);
+        }
+    }
+
+    @Override
+    public void getMovementsByMonth(
+            GetMovementsByMonthRequest request,
+            StreamObserver<GetMovementsByMonthResponse> responseObserver
+    ) {
+        try {
+            List<Movement> response = getMovementPerMonthUseCase.execute(
+                    movementGrpcMapper.toPeriod(request)
+            );
+
+            responseObserver.onNext(
+                movementGrpcMapper.toGrpc(response)
+            );
+
+            responseObserver.onCompleted();
+        }
+        catch(Exception ex) {
             responseObserver.onError(ex);
         }
     }
