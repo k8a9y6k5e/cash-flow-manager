@@ -13,7 +13,7 @@ import org.springframework.context.ApplicationContextException;
 
 @GrpcAdvice
 public class GlobalExceptionHandler {
-    @GrpcExceptionHandler(ApplicationContextException.class)
+    @GrpcExceptionHandler(ApplicationException.class)
     public StatusRuntimeException applicationExceptionHandle(ApplicationException e) {
         return Status.INTERNAL
                 .withDescription(e.getMessage())
