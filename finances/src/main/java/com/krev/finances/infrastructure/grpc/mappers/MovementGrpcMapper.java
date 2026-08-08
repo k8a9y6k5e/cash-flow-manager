@@ -4,6 +4,7 @@ import com.krev.finances.application.dto.CreateMovementDto;
 import com.krev.finances.application.dto.GetMovementPerMonthDto;
 import com.krev.finances.domain.entity.Movement;
 import com.krev.finances.domain.valueobject.MovementType;
+import com.krev.finances.infrastructure.exceptions.InvalidMovementTypeException;
 import com.krev.finances.infrastructure.grpc.CreateMovementRequest;
 import com.krev.finances.infrastructure.grpc.CreateMovementResponse;
 import com.krev.finances.infrastructure.grpc.GetMovementsByMonthRequest;
@@ -33,7 +34,7 @@ public class MovementGrpcMapper {
 
         }
 
-        return null;//change to an exception throw
+        throw new InvalidMovementTypeException("Invalid Movement Type passed");
     }
 
     public CreateMovementResponse toGrpc(Movement movement) {
@@ -56,7 +57,8 @@ public class MovementGrpcMapper {
                 return com.krev.finances.infrastructure.grpc.MovementType.EXPENSE;
 
         }
-        return null;//change to an exception throw
+
+        throw new InvalidMovementTypeException("Invalid Movement Type passed");
     }
 
     public GetMovementPerMonthDto toPeriod(GetMovementsByMonthRequest request) {

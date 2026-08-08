@@ -33,20 +33,15 @@ public class MovementGrpcService extends MovementServiceGrpc.MovementServiceImpl
             CreateMovementRequest request,
             StreamObserver<CreateMovementResponse> responseObserver
     ) {
-        try {
-            Movement response = createMovementUseCase.execute(
-                    movementGrpcMapper.toDomain(request)
-            );
+        Movement response = createMovementUseCase.execute(
+                movementGrpcMapper.toDomain(request)
+        );
 
-            responseObserver.onNext(
-                    movementGrpcMapper.toGrpc(response)
-            );
+        responseObserver.onNext(
+                movementGrpcMapper.toGrpc(response)
+        );
 
-            responseObserver.onCompleted();
-        }
-        catch (Exception ex) {
-            responseObserver.onError(ex);
-        }
+        responseObserver.onCompleted();
     }
 
     @Override
@@ -54,19 +49,14 @@ public class MovementGrpcService extends MovementServiceGrpc.MovementServiceImpl
             GetMovementsByMonthRequest request,
             StreamObserver<GetMovementsByMonthResponse> responseObserver
     ) {
-        try {
-            List<Movement> response = getMovementPerMonthUseCase.execute(
-                    movementGrpcMapper.toPeriod(request)
-            );
+        List<Movement> response = getMovementPerMonthUseCase.execute(
+                movementGrpcMapper.toPeriod(request)
+        );
 
-            responseObserver.onNext(
-                movementGrpcMapper.toGrpc(response)
-            );
+        responseObserver.onNext(
+            movementGrpcMapper.toGrpc(response)
+        );
 
-            responseObserver.onCompleted();
-        }
-        catch(Exception ex) {
-            responseObserver.onError(ex);
-        }
+        responseObserver.onCompleted();
     }
 }

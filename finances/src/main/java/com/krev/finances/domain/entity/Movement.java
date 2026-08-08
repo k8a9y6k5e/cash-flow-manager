@@ -1,5 +1,6 @@
 package com.krev.finances.domain.entity;
 
+import com.krev.finances.domain.exceptions.DomainEntityException;
 import com.krev.finances.domain.valueobject.MovementType;
 import lombok.Getter;
 
@@ -19,7 +20,9 @@ public class Movement {
         if(amount != null && amount > 0L) {
             this.amount = amount;
         }
-        //and an error throw
+        else {
+            throw new DomainEntityException("Invalid amount value entered");
+        }
 
         this.id = id;
         this.type = type;
@@ -30,7 +33,9 @@ public class Movement {
         if(amount != null && amount > 0L) {
             this.amount = amount;
         }
-        //and an error throw
+        else {
+            throw new DomainEntityException("Invalid amount value entered");
+        }
 
         this.type = type;
         this.date = LocalDate.now();
@@ -40,7 +45,9 @@ public class Movement {
         if(amount != null && amount > 0L) {
             this.amount = amount;
         }
-        //and an error throw
+        else {
+            throw new DomainEntityException("Invalid amount value entered");
+        }
 
         this.id = id;
         this.type = type;
@@ -51,7 +58,9 @@ public class Movement {
         if(amount != null && amount > 0L) {
             this.amount = amount;
         }
-        //and an error throw
+        else {
+            throw new DomainEntityException("Invalid amount value entered");
+        }
 
         this.type = type;
         this.date = date;

@@ -6,11 +6,11 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public record CreateMovementDto(
-        @NotBlank
+        @NotBlank(message = "Type it's not valid value")
         MovementType type,
 
-        @NotNull
-        @Min(1)
+        @NotNull(message = "Amount need a value")
+        @Min(value = 1, message = "Amount need movement a valid quantity")
         Long amount
 ) {
 }
