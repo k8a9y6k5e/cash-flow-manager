@@ -22,6 +22,10 @@ services:
       dockerfile: Dockerfile
     ports:
       - "9090:9090"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/cash_flow
+      SPRING_DATASOURCE_USERNAME: ${MYSQL_USER}
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_PASSWORD}
     depends_on:
       db:
         condition: service_healthy
