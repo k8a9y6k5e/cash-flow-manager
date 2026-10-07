@@ -1,6 +1,6 @@
 package com.krev.auth.infrastructure.security;
 
-import com.krev.auth.application.port.out.TokenGenerator;
+import com.krev.auth.application.port.out.TokenGeneratorUseCase;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +12,7 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 
 @Component
-public class JwtTokenGenerator implements TokenGenerator {
+public class JwtTokenGenerator implements TokenGeneratorUseCase {
     @Value("${jwt.secret}")
     private String secret;
 

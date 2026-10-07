@@ -1,5 +1,5 @@
 package com.krev.auth.application.port.out;
 
-public interface TokenGenerator {
+public interface TokenGeneratorUseCase {
     String generateToken(Long userId);
 }
