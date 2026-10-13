@@ -30,7 +30,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     ) throws ServletException, IOException {
         String authorization = request.getHeader("Authorization");
 
-        if(authorization.isBlank()){
+        if(authorization == null || authorization.isBlank()){
             filterChain.doFilter(request, response);
             return;
         }
