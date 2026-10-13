@@ -1,0 +1,7 @@
+$kind: collection
+name: Finances
+description: Finances service for the Cash Flow Manager. Manages financial movements (income/expense) via gRPC. Runs on port 9090.
+variables:
+  - key: finances_grpc_url
+    value: 'localhost:9090'
+    description: gRPC server address for the Finances service

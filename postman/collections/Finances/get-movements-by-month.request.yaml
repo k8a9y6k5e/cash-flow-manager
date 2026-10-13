@@ -1,0 +1,13 @@
+$kind: grpc-request
+name: Get Movements By Month
+order: 2000
+url: '{{finances_grpc_url}}'
+methodPath: /movement.MovementService/GetMovementsByMonth
+message:
+  content: |-
+    {
+      "month": 10,
+      "year": 2026
+    }
+settings:
+  secureConnection: false

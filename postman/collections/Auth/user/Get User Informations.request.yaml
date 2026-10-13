@@ -1,0 +1,7 @@
+$kind: http-request
+url: "{{auth_base_url}}/user/me"
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: ""

@@ -1,0 +1,7 @@
+$kind: collection
+name: Auth
+description: Authentication service for the Cash Flow Manager. Handles user registration and JWT-based authentication.
+variables:
+  - key: auth_base_url
+    value: 'http://localhost:8080'
+    description: Base URL for the Auth service

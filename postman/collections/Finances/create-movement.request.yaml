@@ -1,0 +1,13 @@
+$kind: grpc-request
+name: Create Movement
+order: 1000
+url: '{{finances_grpc_url}}'
+methodPath: /movement.MovementService/Create
+message:
+  content: |-
+    {
+      "type": "INCOME",
+      "amount": 1000
+    }
+settings:
+  secureConnection: false

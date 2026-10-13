@@ -1,0 +1,14 @@
+name: Cash Flow Manager - Local
+values:
+  - key: auth_base_url
+    value: 'http://localhost:8080'
+    description: Base URL for the Auth HTTP service
+    enabled: true
+  - key: finances_grpc_url
+    value: 'localhost:9090'
+    description: gRPC server address for the Finances service (from docker-compose port mapping)
+    enabled: true
+  - key: token
+    value: ''
+    description: JWT token returned after registration/login — set this after calling Register
+    enabled: true

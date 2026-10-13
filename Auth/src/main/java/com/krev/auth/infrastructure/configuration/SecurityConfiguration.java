@@ -23,8 +23,7 @@ public class SecurityConfiguration {
         http
                 .authorizeHttpRequests(
                 auth -> auth.requestMatchers(
-                            "/auth/register",
-                            "/csrf"
+                            "/auth/register"
                         )
                         .permitAll()
                         .anyRequest()
