@@ -23,7 +23,8 @@ public class SecurityConfiguration {
         http
                 .authorizeHttpRequests(
                 auth -> auth.requestMatchers(
-                            "/auth/register"
+                            "/auth/register",
+                            "/auth/login"
                         )
                         .permitAll()
                         .anyRequest()

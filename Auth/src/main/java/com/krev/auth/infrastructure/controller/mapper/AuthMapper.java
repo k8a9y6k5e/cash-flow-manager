@@ -1,8 +1,12 @@
 package com.krev.auth.infrastructure.controller.mapper;
 
+import com.krev.auth.application.port.in.dto.LoginDto;
+import com.krev.auth.application.port.in.dto.LoginReturnDto;
 import com.krev.auth.application.port.in.dto.RegisterDto;
 import com.krev.auth.application.port.in.dto.RegisterReturnDto;
 import com.krev.auth.domain.entity.User;
+import com.krev.auth.infrastructure.controller.dto.LoginUserRequest;
+import com.krev.auth.infrastructure.controller.dto.LoginUserResponse;
 import com.krev.auth.infrastructure.controller.dto.RegisterUserRequest;
 import com.krev.auth.infrastructure.controller.dto.RegisterUserResponse;
 
@@ -17,6 +21,20 @@ public class AuthMapper {
 
     public RegisterUserResponse toController(RegisterReturnDto body) {
         return new RegisterUserResponse(
+                body.token()
+        );
+    }
+
+    public LoginDto toApplication(LoginUserRequest request) {
+        return new LoginDto(
+                request.email(),
+                request.username(),
+                request.password()
+        );
+    }
+
+    public LoginUserResponse toController(LoginReturnDto body) {
+        return new LoginUserResponse(
                 body.token()
         );
     }

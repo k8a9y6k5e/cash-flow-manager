@@ -24,6 +24,20 @@ public class UserPersistenceAdapter implements UserRepositoryAdapter {
         return this.toDomain(userJpaRepository.findById(id).orElseThrow());
     }
 
+    @Override
+    public User findByEmail(String email) {
+        return this.toDomain(
+                userJpaRepository.findByEmail(email).orElseThrow()
+        );
+    }
+
+    @Override
+    public User findByUsername(String username) {
+        return this.toDomain(
+                userJpaRepository.findByUsername(username).orElseThrow()
+        );
+    }
+
     private UserJpaEntity toEntity(User user){
         UserJpaEntity entity = new UserJpaEntity();
 
