@@ -28,6 +28,10 @@ public class  UserRegisterService implements UserRegisterUseCase {
     }
 
     public RegisterReturnDto execute(RegisterDto body) {
+        if(userRepository.findByEmail(body.email()) != null){
+            throw new RuntimeException("Email already used");
+        }
+
         String password = passwordEncoder.encode(body.password());
 
         User user = userRepository.save(createUserValue(body, password));
