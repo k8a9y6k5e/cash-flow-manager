@@ -1,8 +1,15 @@
 $kind: grpc-request
 name: Get Movements By Month
+methodDescriptor: CvQDCg5tb3ZlbWVudC5wcm90bxIIbW92ZW1lbnQiYAoITW92ZW1lbnQSDgoCaWQYASABKANCAhABEh4KBHR5cGUYAiABKA4yDE1vdmVtZW50VHlwZUICEAESEgoGYW1vdW50GAMgASgDQgIQARIQCgRkYXRlGAQgASgJQgIQASJMChpHZXRNb3ZlbWVudHNCeU1vbnRoUmVxdWVzdBIRCgVtb250aBgBIAEoBUICEAESEgoEeWVhchgCIAEoBUICEAFIAEIHCgVfeWVhciI+ChtHZXRNb3ZlbWVudHNCeU1vbnRoUmVzcG9uc2USHwoJbW92ZW1lbnRzGAEgAygLMghNb3ZlbWVudEICEAEqRgoMTW92ZW1lbnRUeXBlEh0KGU1PVkVNRU5UX1RZUEVfVU5TUEVDSUZJRUQQABIKCgZJTkNPTUUQARILCgdFWFBFTlNFEAIydQoPTW92ZW1lbnRTZXJ2aWNlEmIKE0dldE1vdmVtZW50c0J5TW9udGgSJC5tb3ZlbWVudC5HZXRNb3ZlbWVudHNCeU1vbnRoUmVxdWVzdBolLm1vdmVtZW50LkdldE1vdmVtZW50c0J5TW9udGhSZXNwb25zZUIpCiVjb20ua3Jldi5maW5hbmNlcy5pbmZyYXN0cnVjdHVyZS5ncnBjUAE=
+auth:
+  type: bearer
+  credentials:
+    token: ""
+schema:
+  source: auto
 order: 2000
-url: '{{finances_grpc_url}}'
-methodPath: /movement.MovementService/GetMovementsByMonth
+url: "{{finances_grpc_url}}"
+methodPath: movement.MovementService.GetMovementsByMonth
 message:
   content: |-
     {

@@ -1,8 +1,11 @@
 $kind: grpc-request
 name: Create Movement
+methodDescriptor: CqoDCg5tb3ZlbWVudC5wcm90bxIIbW92ZW1lbnQiSwoVQ3JlYXRlTW92ZW1lbnRSZXF1ZXN0Eh4KBHR5cGUYASABKA4yDE1vdmVtZW50VHlwZUICEAESEgoGYW1vdW50GAIgASgDQgIQASJuChZDcmVhdGVNb3ZlbWVudFJlc3BvbnNlEg4KAmlkGAEgASgDQgIQARIeCgR0eXBlGAIgASgOMgxNb3ZlbWVudFR5cGVCAhABEhIKBmFtb3VudBgDIAEoA0ICEAESEAoEZGF0ZRgEIAEoCUICEAEqRgoMTW92ZW1lbnRUeXBlEh0KGU1PVkVNRU5UX1RZUEVfVU5TUEVDSUZJRUQQABIKCgZJTkNPTUUQARILCgdFWFBFTlNFEAIyXgoPTW92ZW1lbnRTZXJ2aWNlEksKBkNyZWF0ZRIfLm1vdmVtZW50LkNyZWF0ZU1vdmVtZW50UmVxdWVzdBogLm1vdmVtZW50LkNyZWF0ZU1vdmVtZW50UmVzcG9uc2VCKQolY29tLmtyZXYuZmluYW5jZXMuaW5mcmFzdHJ1Y3R1cmUuZ3JwY1AB
+schema:
+  source: auto
 order: 1000
-url: '{{finances_grpc_url}}'
-methodPath: /movement.MovementService/Create
+url: "{{finances_grpc_url}}"
+methodPath: movement.MovementService.Create
 message:
   content: |-
     {

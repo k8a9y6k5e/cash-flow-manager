@@ -1,0 +1,24 @@
+
+localResources:
+  specs:
+    - ../E:/Projects/cash-flow-manager/Finances/target/protoc-dependencies/6a053cbfc0064621020df036e30ccb01/google/protobuf/wrappers.proto
+    - ../E:/Projects/cash-flow-manager/Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/rpc/context/attribute_context.proto
+    - ../E:/Projects/cash-flow-manager/Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/shopping/type/types.proto
+    - ../E:/Projects/cash-flow-manager/Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/type/calendar_period.proto
+    - ../E:/Projects/cash-flow-manager/Finances/target/protoc-dependencies/28968c552e4b6a7342d3457dfc6529d6/grpc/binlog/v1/binarylog.proto
+    - ../E:/Projects/cash-flow-manager/Finances/target/protoc-dependencies/28968c552e4b6a7342d3457dfc6529d6/grpc/reflection/v1/reflection.proto
+    - ../E:/Projects/cash-flow-manager/Finances/target/protoc-dependencies/28968c552e4b6a7342d3457dfc6529d6/grpc/reflection/v1alpha/reflection.proto
+    - ../E:/Projects/cash-flow-manager/Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/api/annotations.proto
+    - ../E:/Projects/cash-flow-manager/Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/apps/card/v1/card.proto
+    - ../E:/Projects/cash-flow-manager/Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/cloud/audit/audit_log.proto
+    - ../E:/Projects/cash-flow-manager/Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/cloud/location/locations.proto
+    - ../E:/Projects/cash-flow-manager/Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/geo/type/viewport.proto
+    - ../E:/Projects/cash-flow-manager/Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/longrunning/operations.proto
+    - ../E:/Projects/cash-flow-manager/Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/rpc/code.proto
+    - ../E:/Projects/cash-flow-manager/Finances/target/classes/com/krev/finances/movement.proto
+    - ../E:/Projects/cash-flow-manager/Finances/target/protoc-dependencies/6a053cbfc0064621020df036e30ccb01/google/protobuf/type.proto
+resourceNameMappings:
+  specs:
+    - ../Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/type/calendar_period.proto: calendar_period.proto
+    - ../Finances/target/classes/com/krev/finances/movement.proto: movement.proto
+    - ../Finances/target/protoc-dependencies/6a053cbfc0064621020df036e30ccb01/google/protobuf/type.proto: type.proto
