@@ -18,7 +18,7 @@ services:
 
   finances:
     build:
-      context: ./finances
+      context: ./Finances
       dockerfile: Dockerfile
     ports:
       - "9090:9090"
@@ -26,9 +26,28 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/cash_flow
       SPRING_DATASOURCE_USERNAME: ${MYSQL_USER}
       SPRING_DATASOURCE_PASSWORD: ${MYSQL_PASSWORD}
+      JWT_SECRET_PUBLIC: ${JWT_SECRET_PUBLIC}
     depends_on:
       db:
         condition: service_healthy
+
+  auth:
+    build:
+      context: ./Auth
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/cash_flow
+      SPRING_DATASOURCE_USERNAME: ${MYSQL_USER}
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_PASSWORD}
+      JWT_SECRET_PUBLIC: ${JWT_SECRET_PUBLIC}
+      JWT_SECRET_PRIVATE: ${JWT_SECRET_PRIVATE}
+    depends_on:
+      db:
+        condition: service_healthy
+      finances:
+        condition: service_started
 
 volumes:
   mysql-data:
