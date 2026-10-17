@@ -2,8 +2,11 @@ package com.krev.auth.infrastructure.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
+import java.security.interfaces.RSAPublicKey;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
+
 import java.security.KeyFactory;
 import java.security.PrivateKey;
 import java.security.PublicKey;
@@ -36,6 +39,11 @@ public class JwtConfig {
         X509EncodedKeySpec spec = new X509EncodedKeySpec(keyBytes);
 
         return KeyFactory.getInstance("RSA").generatePublic(spec);
+    }
+
+    @Bean
+    public JwtDecoder jwtDecoder(RSAPublicKey publicKey) {
+        return NimbusJwtDecoder.withPublicKey(publicKey).build();
     }
 }
 
