@@ -27,18 +27,23 @@ public class  UserRegisterService implements UserRegisterUseCase {
         this.tokenGenerator = tokenGenerator;
     }
 
-    public RegisterReturnDto execute(RegisterDto body) {
-        if(userRepository.findByEmail(body.email()) != null){
-            throw new RuntimeException("Email already used");
+    public RegisterReturnDto execute(RegisterDto body) throws Exception {
+        try {
+            if(userRepository.findByEmail(body.email()) != null){
+                throw new RuntimeException("Email already used");
+            }
+
+            String password = passwordEncoder.encode(body.password());
+
+            User user = userRepository.save(createUserValue(body, password));
+
+            String token = tokenGenerator.generateToken(user.getId());
+
+            return new RegisterReturnDto(token);
         }
-
-        String password = passwordEncoder.encode(body.password());
-
-        User user = userRepository.save(createUserValue(body, password));
-
-        String token = tokenGenerator.generateToken(user.getId());
-
-        return new RegisterReturnDto(token);
+        catch (Exception ex) {
+            throw new Exception(ex.getMessage());
+        }
     }
 
     private User createUserValue(RegisterDto body, String password) {
