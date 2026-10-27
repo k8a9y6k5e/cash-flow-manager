@@ -36,11 +36,11 @@ class AppTheme {
             color: Color(0xFF15251C),
         ),
         titleSmall: TextStyle(
-            fontSize: 14,
+            fontSize: 11,
             color: Color(0xFF15251C),
         ),
         bodyMedium: TextStyle(
-            fontSize: 11,
+            fontSize: 14,
             color: Color(0xFF0F0F0F),
         ),
         bodySmall: TextStyle(
@@ -54,7 +54,7 @@ class AppTheme {
         shadowColor: Color(0xFF15251C),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(25)
-        )
+        ),
       )
   );
 }
