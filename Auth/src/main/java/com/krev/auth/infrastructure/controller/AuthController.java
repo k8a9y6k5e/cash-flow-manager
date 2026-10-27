@@ -34,7 +34,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public RegisterUserResponse register(@RequestBody @Valid RegisterUserRequest registerUserRequest) {
+    public RegisterUserResponse register(@RequestBody @Valid RegisterUserRequest registerUserRequest) throws Exception {
         RegisterDto body = authMapper.toApplication(registerUserRequest);
 
         return authMapper.toController(userRegisterUseCase.execute(body));

@@ -27,7 +27,7 @@ public class UserPersistenceAdapter implements UserRepositoryAdapter {
     @Override
     public User findByEmail(String email) {
         return this.toDomain(
-                userJpaRepository.findByEmail(email).orElseThrow()
+                userJpaRepository.findByEmail(email).orElse(null)
         );
     }
 
@@ -53,11 +53,11 @@ public class UserPersistenceAdapter implements UserRepositoryAdapter {
     }
 
     private User toDomain(UserJpaEntity entity){
-        return new User(
+        return entity != null ? new User(
                 entity.getId(),
                 entity.getUsername(),
                 entity.getPassword(),
                 entity.getEmail()
-        );
+        ) : null;
     }
 }
