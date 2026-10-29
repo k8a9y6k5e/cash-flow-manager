@@ -23,7 +23,7 @@ public class UserController {
 
     @GetMapping("/me")
     public UserInformationsResponse GetUserInformations(Authentication authentication) {
-        Long userId = (Long) authentication.getPrincipal();
+        Long userId = Long.parseLong(authentication.getName());
 
         return mapper.toController(userGetInformations.execute(userId));
     }
