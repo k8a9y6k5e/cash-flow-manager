@@ -18,7 +18,8 @@ public class MovementGrpcMapper {
     public CreateMovementDto toDomain(CreateMovementRequest request) {
         return new CreateMovementDto(
                 toDomainType(request.getType()),
-                request.getAmount()
+                request.getAmount(),
+                request.getDescription()
         );
     }
 
@@ -43,6 +44,7 @@ public class MovementGrpcMapper {
                 .setType(toGrpcType(movement.getType()))
                 .setAmount(movement.getAmount())
                 .setDate(movement.getDate().toString())
+                .setDescription(movement.getDescription())
                 .build();
     }
 
@@ -74,6 +76,7 @@ public class MovementGrpcMapper {
                 .setType(toGrpcType(movement.getType()))
                 .setAmount(movement.getAmount())
                 .setDate(movement.getDate().toString())
+                .setDescription(movement.getDescription())
                 .build();
     }
 

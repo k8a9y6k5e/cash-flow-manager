@@ -16,11 +16,13 @@ message Movement {
   MovementType type = 2;
   int64 amount = 3;
   string date = 4;
+  string description = 5;
 }
 
 message CreateMovementRequest {
   MovementType type = 1;
   int64 amount = 2;
+  string description = 3;
 }
 
 message CreateMovementResponse {
@@ -28,6 +30,7 @@ message CreateMovementResponse {
   MovementType type = 2;
   int64 amount = 3;
   string date = 4;
+  string description = 5;
 }
 
 message GetMovementsByMonthRequest {

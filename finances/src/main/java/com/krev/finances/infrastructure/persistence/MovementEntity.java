@@ -24,4 +24,7 @@ public class MovementEntity {
 
     @Column(name = "date", nullable = false)
     private LocalDate date;
+
+    @Column(name = "description", nullable = true)
+    private String description;
 }
