@@ -15,7 +15,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import com.krev.finances.domain.ports.MovementRepositoryPort;
+import com.krev.finances.application.port.out.MovementRepositoryPort;
 
 @ExtendWith(MockitoExtension.class)
 public class CreateMovementServiceTest {

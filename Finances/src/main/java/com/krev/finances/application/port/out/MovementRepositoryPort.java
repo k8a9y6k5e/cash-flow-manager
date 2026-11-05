@@ -1,4 +1,4 @@
-package com.krev.finances.domain.ports;
+package com.krev.finances.application.port.out;
 
 import com.krev.finances.domain.entity.Movement;
 

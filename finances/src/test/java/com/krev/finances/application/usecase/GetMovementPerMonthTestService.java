@@ -2,7 +2,7 @@ package com.krev.finances.application.usecase;
 
 import com.krev.finances.application.dto.GetMovementPerMonthDto;
 import com.krev.finances.domain.entity.Movement;
-import com.krev.finances.domain.ports.MovementRepositoryPort;
+import com.krev.finances.application.port.out.MovementRepositoryPort;
 import com.krev.finances.domain.valueobject.MovementType;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

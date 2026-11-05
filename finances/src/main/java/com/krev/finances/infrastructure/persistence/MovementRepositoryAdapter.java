@@ -1,7 +1,7 @@
 package com.krev.finances.infrastructure.persistence;
 
 import com.krev.finances.domain.entity.Movement;
-import com.krev.finances.domain.ports.MovementRepositoryPort;
+import com.krev.finances.application.port.out.MovementRepositoryPort;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
