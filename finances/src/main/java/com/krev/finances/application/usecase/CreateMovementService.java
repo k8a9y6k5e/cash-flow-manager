@@ -16,7 +16,7 @@ public class CreateMovementService implements CreateMovementUseCase {
 
     @Override
     public Movement execute(CreateMovementDto body) {
-        Movement movement = new Movement(body.type(), body.amount(), body.description());
+        Movement movement = new Movement(body.type(), body.amount(), body.description(), body.userId());
 
         return repositoryPort.save(movement);
     }

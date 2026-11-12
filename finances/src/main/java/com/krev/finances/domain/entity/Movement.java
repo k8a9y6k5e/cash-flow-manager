@@ -16,9 +16,11 @@ public class Movement {
 
     private LocalDate date;
 
-    String description;
+    private String description;
 
-    public Movement(Long id, MovementType type, Long amount, String description) {
+    private Long userId;
+
+    public Movement(Long id, MovementType type, Long amount, String description, Long userId) {
         if(amount != null && amount > 0L) {
             this.amount = amount;
         }
@@ -30,9 +32,10 @@ public class Movement {
         this.type = type;
         this.date = LocalDate.now();
         this.description = description;
+        this.userId = userId;
     }
 
-    public Movement(MovementType type, Long amount, String description) {
+    public Movement(MovementType type, Long amount, String description, Long userId) {
         if(amount != null && amount > 0L) {
             this.amount = amount;
         }
@@ -43,9 +46,10 @@ public class Movement {
         this.type = type;
         this.date = LocalDate.now();
         this.description = description;
+        this.userId = userId;
     }
 
-    public Movement(Long id, MovementType type, Long amount, LocalDate date, String description) {
+    public Movement(Long id, MovementType type, Long amount, LocalDate date, String description, Long userId) {
         if(amount != null && amount > 0L) {
             this.amount = amount;
         }
@@ -57,9 +61,10 @@ public class Movement {
         this.type = type;
         this.date = date;
         this.description = description;
+        this.userId = userId;
     }
 
-    public Movement(MovementType type, Long amount, LocalDate date, String description) {
+    public Movement(MovementType type, Long amount, LocalDate date, String description, Long userId) {
         if(amount != null && amount > 0L) {
             this.amount = amount;
         }
@@ -70,5 +75,6 @@ public class Movement {
         this.type = type;
         this.date = date;
         this.description = description;
+        this.userId = userId;
     }
 }

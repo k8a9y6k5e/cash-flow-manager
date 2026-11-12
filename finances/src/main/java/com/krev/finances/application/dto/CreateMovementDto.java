@@ -12,6 +12,9 @@ public record CreateMovementDto(
         Long amount,
 
         @Size(max = 30, message = "Excepted the characters limit")
-        String description
+        String description,
+
+        @NotNull
+        Long userId
 ) {
 }

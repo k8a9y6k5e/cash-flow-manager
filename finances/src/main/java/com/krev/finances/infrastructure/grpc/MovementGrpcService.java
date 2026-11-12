@@ -4,6 +4,7 @@ import com.krev.finances.application.port.in.CreateMovementUseCase;
 import com.krev.finances.application.port.in.GetMovementPerMonthUseCase;
 import com.krev.finances.domain.entity.Movement;
 import com.krev.finances.infrastructure.grpc.mappers.MovementGrpcMapper;
+import com.krev.finances.infrastructure.grpc.security.GrpcUserContext;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 
@@ -34,7 +35,7 @@ public class MovementGrpcService extends MovementServiceGrpc.MovementServiceImpl
             StreamObserver<CreateMovementResponse> responseObserver
     ) {
         Movement response = createMovementUseCase.execute(
-                movementGrpcMapper.toDomain(request)
+                movementGrpcMapper.toDomain(request, GrpcUserContext.USER_ID.get())
         );
 
         responseObserver.onNext(

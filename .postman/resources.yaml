@@ -1,4 +1,3 @@
-
 localResources:
   specs:
     - ../E:/Projects/cash-flow-manager/Finances/target/protoc-dependencies/6a053cbfc0064621020df036e30ccb01/google/protobuf/wrappers.proto
@@ -17,8 +16,32 @@ localResources:
     - ../E:/Projects/cash-flow-manager/Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/rpc/code.proto
     - ../E:/Projects/cash-flow-manager/Finances/target/classes/com/krev/finances/movement.proto
     - ../E:/Projects/cash-flow-manager/Finances/target/protoc-dependencies/6a053cbfc0064621020df036e30ccb01/google/protobuf/type.proto
+    - ../E:/Projects/cash-flow-manager/Finances/src/main/proto/com/krev/finances/movement.proto
+    - ../E:/Projects/cash-flow-manager/Finances/target/protoc-dependencies/28968c552e4b6a7342d3457dfc6529d6/grpc/channelz/v1/channelz.proto
+    - ../E:/Projects/cash-flow-manager/Finances/target/protoc-dependencies/28968c552e4b6a7342d3457dfc6529d6/grpc/health/v1/health.proto
+    - ../E:/Projects/cash-flow-manager/Finances/target/protoc-dependencies/6a053cbfc0064621020df036e30ccb01/google/protobuf/any.proto
+    - ../E:/Projects/cash-flow-manager/Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/cloud/extended_operations.proto
+    - ../E:/Projects/cash-flow-manager/Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/logging/type/http_request.proto
 resourceNameMappings:
   specs:
     - ../Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/type/calendar_period.proto: calendar_period.proto
     - ../Finances/target/classes/com/krev/finances/movement.proto: movement.proto
     - ../Finances/target/protoc-dependencies/6a053cbfc0064621020df036e30ccb01/google/protobuf/type.proto: type.proto
+    - ../Finances/src/main/proto/com/krev/finances/movement.proto: movement.proto
+    - ../Finances/target/protoc-dependencies/28968c552e4b6a7342d3457dfc6529d6/grpc/binlog/v1/binarylog.proto: binarylog.proto
+    - ../Finances/target/protoc-dependencies/28968c552e4b6a7342d3457dfc6529d6/grpc/channelz/v1/channelz.proto: channelz.proto
+    - ../Finances/target/protoc-dependencies/28968c552e4b6a7342d3457dfc6529d6/grpc/health/v1/health.proto: health.proto
+    - ../Finances/target/protoc-dependencies/28968c552e4b6a7342d3457dfc6529d6/grpc/reflection/v1/reflection.proto: reflection.proto
+    - ../Finances/target/protoc-dependencies/28968c552e4b6a7342d3457dfc6529d6/grpc/reflection/v1alpha/reflection.proto: reflection.proto
+    - ../Finances/target/protoc-dependencies/6a053cbfc0064621020df036e30ccb01/google/protobuf/any.proto: any.proto
+    - ../Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/api/annotations.proto: annotations.proto
+    - ../Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/apps/card/v1/card.proto: card.proto
+    - ../Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/cloud/audit/audit_log.proto: audit_log.proto
+    - ../Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/cloud/extended_operations.proto: extended_operations.proto
+    - ../Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/cloud/location/locations.proto: locations.proto
+    - ../Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/geo/type/viewport.proto: viewport.proto
+    - ../Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/logging/type/http_request.proto: http_request.proto
+    - ../Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/longrunning/operations.proto: operations.proto
+    - ../Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/rpc/code.proto: code.proto
+    - ../Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/rpc/context/attribute_context.proto: attribute_context.proto
+    - ../Finances/target/protoc-dependencies/b268dccf730baa0f4c71e80c6664ad54/google/shopping/type/types.proto: types.proto

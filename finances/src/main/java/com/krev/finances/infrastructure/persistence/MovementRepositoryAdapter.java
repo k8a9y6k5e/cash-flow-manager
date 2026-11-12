@@ -27,6 +27,8 @@ public class MovementRepositoryAdapter implements MovementRepositoryPort {
 
         entity.setDescription(domain.getDescription());
 
+        entity.setUserId(domain.getUserId());
+
         return entity;
     }
 
@@ -35,7 +37,8 @@ public class MovementRepositoryAdapter implements MovementRepositoryPort {
                 entity.getId(),
                 entity.getType(),
                 entity.getAmount(),
-                entity.getDescription()
+                entity.getDescription(),
+                entity.getUserId()
         );
     }
 
@@ -45,7 +48,8 @@ public class MovementRepositoryAdapter implements MovementRepositoryPort {
                 entity.getType(),
                 entity.getAmount(),
                 entity.getDate(),
-                entity.getDescription()
+                entity.getDescription(),
+                entity.getUserId()
         );
     }
 

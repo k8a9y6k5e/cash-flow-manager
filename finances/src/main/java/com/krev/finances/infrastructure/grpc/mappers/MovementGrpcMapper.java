@@ -15,11 +15,12 @@ import java.util.List;
 
 @Component
 public class MovementGrpcMapper {
-    public CreateMovementDto toDomain(CreateMovementRequest request) {
+    public CreateMovementDto toDomain(CreateMovementRequest request, String userId) {
         return new CreateMovementDto(
                 toDomainType(request.getType()),
                 request.getAmount(),
-                request.getDescription()
+                request.getDescription(),
+                Long.parseLong(userId)
         );
     }
 
@@ -45,6 +46,7 @@ public class MovementGrpcMapper {
                 .setAmount(movement.getAmount())
                 .setDate(movement.getDate().toString())
                 .setDescription(movement.getDescription())
+                .setUserId(movement.getUserId())
                 .build();
     }
 

@@ -27,4 +27,7 @@ public class MovementEntity {
 
     @Column(name = "description", nullable = true)
     private String description;
+
+    @Column(name = "user_id", nullable = false)
+    private Long userId;
 }
