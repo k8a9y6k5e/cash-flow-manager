@@ -25,7 +25,7 @@ public class GetMovementPerMonthService implements GetMovementPerMonthUseCase {
         LocalDate initialDate = createInitialDate(body.month(), year);
         LocalDate finalDate = createFinalDate(body.month(), year);
 
-        List<Movement> movements = repositoryPort.findByDateBetween(initialDate, finalDate);
+        List<Movement> movements = repositoryPort.findByDateBetween(initialDate, finalDate, body.userId());
 
         if (movements.isEmpty()) {
             throw new RuntimeException("No one movement saved");

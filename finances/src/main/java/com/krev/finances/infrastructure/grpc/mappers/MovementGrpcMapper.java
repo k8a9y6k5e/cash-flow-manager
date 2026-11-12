@@ -65,10 +65,11 @@ public class MovementGrpcMapper {
         throw new InvalidMovementTypeException("Invalid Movement Type passed");
     }
 
-    public GetMovementPerMonthDto toPeriod(GetMovementsByMonthRequest request) {
+    public GetMovementPerMonthDto toPeriod(GetMovementsByMonthRequest request, String userId) {
         return new GetMovementPerMonthDto(
-                request.getMonth(),
-                request.getYear()
+            request.getMonth(),
+            request.getYear(),
+            Long.parseLong(userId)
         );
     }
 
@@ -79,6 +80,7 @@ public class MovementGrpcMapper {
                 .setAmount(movement.getAmount())
                 .setDate(movement.getDate().toString())
                 .setDescription(movement.getDescription())
+                .setUserId(movement.getUserId())
                 .build();
     }
 

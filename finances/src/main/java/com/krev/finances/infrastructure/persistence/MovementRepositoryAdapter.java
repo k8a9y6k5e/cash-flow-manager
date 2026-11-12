@@ -69,7 +69,7 @@ public class MovementRepositoryAdapter implements MovementRepositoryPort {
     }
 
     @Override
-    public List<Movement> findByDateBetween(LocalDate initialDate, LocalDate finalDate) {
-        return toListedDomain(repository.findByDateBetween(initialDate, finalDate));
+    public List<Movement> findByDateBetween(LocalDate initialDate, LocalDate finalDate, Long userId) {
+        return toListedDomain(repository.findByDateBetweenAndUserId(initialDate, finalDate, userId));
     }
 }

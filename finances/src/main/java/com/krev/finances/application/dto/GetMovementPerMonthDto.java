@@ -6,6 +6,9 @@ public record GetMovementPerMonthDto(
         @NotNull(message = "Month doesn't passed")
         Integer month,
 
-        Integer year
+        Integer year,
+
+        @NotNull
+        Long userId
 ) {
 }

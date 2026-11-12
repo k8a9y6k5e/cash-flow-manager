@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface MovementRepositoryPort {
     Movement save(Movement movement);
-    List<Movement> findByDateBetween(LocalDate initialDate, LocalDate finalDate);
+    List<Movement> findByDateBetween(LocalDate initialDate, LocalDate finalDate, Long userId);
 }

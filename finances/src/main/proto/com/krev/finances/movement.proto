@@ -17,6 +17,7 @@ message Movement {
   int64 amount = 3;
   string date = 4;
   string description = 5;
+  int64 userId = 6;
 }
 
 message CreateMovementRequest {

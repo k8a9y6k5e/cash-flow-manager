@@ -51,7 +51,7 @@ public class MovementGrpcService extends MovementServiceGrpc.MovementServiceImpl
             StreamObserver<GetMovementsByMonthResponse> responseObserver
     ) {
         List<Movement> response = getMovementPerMonthUseCase.execute(
-                movementGrpcMapper.toPeriod(request)
+                movementGrpcMapper.toPeriod(request, GrpcUserContext.USER_ID.get())
         );
 
         responseObserver.onNext(
