@@ -2,6 +2,7 @@ package com.krev.finances.infrastructure.grpc.security;
 
 import io.grpc.*;
 import net.devh.boot.grpc.server.interceptor.GrpcGlobalServerInterceptor;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.JwtException;
 import org.springframework.stereotype.Component;
@@ -27,7 +28,6 @@ public class JwtGrpcServerInterceptor implements ServerInterceptor {
             Metadata headers,
             ServerCallHandler<ReqT, RespT> next
     ) {
-        System.out.println("JWT GRPC INTERCEPTOR EXECUTADO");
         String authorization = headers.get(AUTHORIZATION);
 
         if (authorization == null || !authorization.startsWith("Bearer ")) {
@@ -42,7 +42,14 @@ public class JwtGrpcServerInterceptor implements ServerInterceptor {
         String token = authorization.substring(7);
 
         try {
-            jwtDecoder.decode(token);
+            Jwt jwtToken = jwtDecoder.decode(token);
+
+            String userId = jwtToken.getSubject();
+
+            Context context = Context.current()
+                    .withValue(GrpcUserContext.USER_ID, userId);
+
+            return Contexts.interceptCall(context, call, headers, next);
         } catch (JwtException exception) {
             call.close(
                     Status.UNAUTHENTICATED
@@ -51,7 +58,5 @@ public class JwtGrpcServerInterceptor implements ServerInterceptor {
             );
             return new ServerCall.Listener<>() {};
         }
-
-        return next.startCall(call, headers);
     }
 }
