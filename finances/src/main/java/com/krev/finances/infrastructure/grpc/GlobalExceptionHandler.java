@@ -9,7 +9,6 @@ import io.grpc.Status;
 import io.grpc.StatusRuntimeException;
 import net.devh.boot.grpc.server.advice.GrpcAdvice;
 import net.devh.boot.grpc.server.advice.GrpcExceptionHandler;
-import org.springframework.context.ApplicationContextException;
 
 @GrpcAdvice
 public class GlobalExceptionHandler {
@@ -44,6 +43,13 @@ public class GlobalExceptionHandler {
     @GrpcExceptionHandler(InvalidMovementTypeException.class)
     public StatusRuntimeException invalidMovementTypeExceptionHandle(InvalidMovementTypeException e) {
         return Status.INVALID_ARGUMENT
+                .withDescription(e.getMessage())
+                .asRuntimeException();
+    }
+
+    @GrpcExceptionHandler(Exception.class)
+    public StatusRuntimeException unexpectedExceptionHandle(Exception e){
+        return Status.INTERNAL
                 .withDescription(e.getMessage())
                 .asRuntimeException();
     }
