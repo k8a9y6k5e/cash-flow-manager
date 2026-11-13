@@ -2,9 +2,11 @@ package com.krev.finances.infrastructure.persistence;
 
 import com.krev.finances.domain.entity.Movement;
 import com.krev.finances.domain.valueobject.MovementType;
+import com.krev.finances.infrastructure.adapter.out.persistence.MovementEntity;
+import com.krev.finances.infrastructure.adapter.out.persistence.MovementJpaRepository;
+import com.krev.finances.infrastructure.adapter.out.persistence.MovementRepositoryAdapter;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;

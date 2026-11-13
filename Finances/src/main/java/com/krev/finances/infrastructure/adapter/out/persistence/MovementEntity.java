@@ -1,4 +1,4 @@
-package com.krev.finances.infrastructure.persistence;
+package com.krev.finances.infrastructure.adapter.out.persistence;
 
 import com.krev.finances.domain.valueobject.MovementType;
 import jakarta.persistence.*;

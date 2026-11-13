@@ -1,4 +1,4 @@
-package com.krev.finances.infrastructure.persistence;
+package com.krev.finances.infrastructure.adapter.out.persistence;
 
 import com.krev.finances.domain.entity.Movement;
 import com.krev.finances.application.port.out.MovementRepositoryPort;

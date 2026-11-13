@@ -1,6 +1,5 @@
-package com.krev.finances.infrastructure.persistence;
+package com.krev.finances.infrastructure.adapter.out.persistence;
 
-import com.krev.finances.domain.entity.Movement;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDate;
