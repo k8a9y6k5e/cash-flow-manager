@@ -3,7 +3,7 @@ package com.krev.finances.application.usecase;
 import com.krev.finances.application.dto.CreateMovementDto;
 import com.krev.finances.application.event.MovementConfirmatedRequestedEvent;
 import com.krev.finances.application.port.in.CreateMovementUseCase;
-import com.krev.finances.application.port.out.MovementConfirmationPort;
+import com.krev.finances.application.port.out.MovementConfirmationPublisher;
 import com.krev.finances.domain.entity.Movement;
 import com.krev.finances.application.port.out.MovementRepositoryPort;
 import org.springframework.stereotype.Service;
@@ -12,14 +12,14 @@ import org.springframework.stereotype.Service;
 public class CreateMovementService implements CreateMovementUseCase {
     private final MovementRepositoryPort repositoryPort;
 
-    private final MovementConfirmationPort movementConfirmationPort;
+    private final MovementConfirmationPublisher movementConfirmationPublisher;
 
     public CreateMovementService(
             MovementRepositoryPort repositoryPort,
-            MovementConfirmationPort movementConfirmationPort
+            MovementConfirmationPublisher movementConfirmationPublisher
     ) {
         this.repositoryPort = repositoryPort;
-        this.movementConfirmationPort = movementConfirmationPort;
+        this.movementConfirmationPublisher = movementConfirmationPublisher;
     }
 
     @Override
@@ -28,7 +28,7 @@ public class CreateMovementService implements CreateMovementUseCase {
 
         Movement savedMovement = repositoryPort.save(movement);
 
-        movementConfirmationPort.publish(toPublishRequest(savedMovement));
+        movementConfirmationPublisher.publish(toPublishRequest(savedMovement), savedMovement.getId().toString());
 
         return savedMovement;
     }
@@ -37,7 +37,7 @@ public class CreateMovementService implements CreateMovementUseCase {
         return new MovementConfirmatedRequestedEvent(
                 movement.getType().toString(),
                 movement.getAmount(),
-                movement.getId()
+                movement.getUserId()
         );
     }
 }
