@@ -48,6 +48,7 @@ public class UserPersistenceAdapter implements UserRepositoryAdapter {
         entity.setUsername(user.getUsername());
         entity.setPassword(user.getPassword());
         entity.setEmail(user.getEmail());
+        entity.setBalance(user.getBalance());
 
         return entity;
     }
@@ -57,7 +58,8 @@ public class UserPersistenceAdapter implements UserRepositoryAdapter {
                 entity.getId(),
                 entity.getUsername(),
                 entity.getPassword(),
-                entity.getEmail()
+                entity.getEmail(),
+                entity.getBalance()
         ) : null;
     }
 }

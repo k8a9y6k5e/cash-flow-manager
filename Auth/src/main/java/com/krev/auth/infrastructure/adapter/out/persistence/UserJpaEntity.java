@@ -26,6 +26,9 @@ public class UserJpaEntity {
     @Column(name = "username", nullable = false)
     private String username;
 
+    @Column(name = "balance", nullable = false)
+    private Long balance = 0L;
+
     @CreatedDate
     LocalDateTime createdDate;
 

@@ -8,6 +8,7 @@ public class User {
     private String username;
     private String password;
     private String email;
+    private Long balance;
 
     public User(Long id, String username, String password, String email) {
         try{
@@ -17,6 +18,7 @@ public class User {
             this.username = username;
             this.password = password;
             this.email = email;
+            this.balance = 0L;
         }
         catch(Exception e){
             throw new RuntimeException(e);
@@ -30,8 +32,23 @@ public class User {
             this.username = username;
             this.password = password;
             this.email = email;
+            this.balance = 0L;
         }
         catch(Exception e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public User(Long id, String username, String password, String email, Long balance) {
+        try {
+            this.validate(username, password, email);
+
+            this.id = id;
+            this.username = username;
+            this.password = password;
+            this.email = email;
+            this.balance = balance == null ? 0L : balance;
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
