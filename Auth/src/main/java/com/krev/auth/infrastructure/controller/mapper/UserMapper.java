@@ -9,7 +9,8 @@ public class UserMapper {
     public UserInformationsResponse toController(UserInformationsDto dto) {
         return new UserInformationsResponse(
                 dto.username(),
-                dto.email()
+                dto.email(),
+                dto.balance()
         );
     }
 }

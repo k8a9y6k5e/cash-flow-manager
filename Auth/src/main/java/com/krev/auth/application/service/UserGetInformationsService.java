@@ -24,7 +24,8 @@ public class UserGetInformationsService implements UserGetInformationsUseCase {
     private UserInformationsDto toResponse(User user){
         return new UserInformationsDto(
           user.getUsername(),
-          user.getEmail()
+          user.getEmail(),
+          user.getBalance()
         );
     }
 }
