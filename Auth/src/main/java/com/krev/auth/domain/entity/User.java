@@ -53,6 +53,22 @@ public class User {
         }
     }
 
+    public void updateBalance(String movementType, Long amount) {
+        if (amount == null || amount <= 0L) {
+            throw new IllegalArgumentException("Movement amount must be positive");
+        }
+
+        long currentBalance = balance == null ? 0L : balance;
+
+        if ("INCOME".equalsIgnoreCase(movementType)) {
+            this.balance = Math.addExact(currentBalance, amount);
+        } else if ("EXPENSE".equalsIgnoreCase(movementType)) {
+            this.balance = Math.subtractExact(currentBalance, amount);
+        } else {
+            throw new IllegalArgumentException("Unsupported movement type: " + movementType);
+        }
+    }
+
     private void validate(String username, String password, String email) throws Exception {
         if(username == null || username.isBlank()) {
             throw new Exception("Username can't be null or empty");
