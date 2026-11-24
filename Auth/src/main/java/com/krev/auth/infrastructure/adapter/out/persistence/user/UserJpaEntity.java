@@ -1,4 +1,4 @@
-package com.krev.auth.infrastructure.adapter.out.persistence;
+package com.krev.auth.infrastructure.adapter.out.persistence.user;
 
 import jakarta.persistence.*;
 import lombok.Data;

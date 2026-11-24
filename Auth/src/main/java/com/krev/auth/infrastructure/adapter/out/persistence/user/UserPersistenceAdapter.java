@@ -1,4 +1,4 @@
-package com.krev.auth.infrastructure.adapter.out.persistence;
+package com.krev.auth.infrastructure.adapter.out.persistence.user;
 
 import com.krev.auth.application.port.out.UserRepositoryAdapter;
 import com.krev.auth.domain.entity.User;
