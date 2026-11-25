@@ -5,6 +5,8 @@ import com.krev.finances.application.port.out.MovementConfirmationPublisher;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
+import java.util.concurrent.ExecutionException;
+
 @Component
 public class KafkaAdapter implements MovementConfirmationPublisher {
     private static final String MOVEMENT_CONFIRMATION_TOPIC = "movement.confirmation";
@@ -17,17 +19,19 @@ public class KafkaAdapter implements MovementConfirmationPublisher {
 
     @Override
     public void publish(MovementConfirmatedRequestedEvent request, String movementId) {
-        kafkaTemplate.send(
-                MOVEMENT_CONFIRMATION_TOPIC,
-                movementId,
-                request
-        ).whenComplete((result, error) -> {
-            if (error != null) {
-                throw new IllegalStateException(
-                        "Could not publish movement confirmation for movement " + movementId,
-                        error
-                );
-            }
-        });
+        try {
+            kafkaTemplate.send(MOVEMENT_CONFIRMATION_TOPIC, movementId, request).get();
+        } catch (InterruptedException exception) {
+            Thread.currentThread().interrupt();
+            throw new IllegalStateException(
+                    "Interrupted while publishing movement confirmation for movement " + movementId,
+                    exception
+            );
+        } catch (ExecutionException exception) {
+            throw new IllegalStateException(
+                    "Could not publish movement confirmation for movement " + movementId,
+                    exception.getCause()
+            );
+        }
     }
 }
